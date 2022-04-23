@@ -173,7 +173,7 @@ MatrixCRS getParallelMult(const MatrixCRS& first, const MatrixCRS& second) {
       numberOfTreads);
   vector<size_t> intermediateAccum(first.m_numberOfRows);
 
-#pragma omp parallel for num_threads(numberOfThread)
+#pragma omp parallel for num_threads(numberOfTreads)
   for (int i = 0; i < static_cast<int>(first.m_numberOfRows); ++i) {
     intermediateAccum[i] = 0;
     auto currentRow = first.getRow(i);
