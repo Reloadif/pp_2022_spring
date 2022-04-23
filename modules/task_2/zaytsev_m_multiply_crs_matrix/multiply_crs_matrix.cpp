@@ -198,15 +198,5 @@ MatrixCRS getParallelMult(const MatrixCRS& first, const MatrixCRS& second) {
     }
   }
 
-  for (auto& vec : intermediateResult) {
-    result.m_accumulateNonZeros.push_back(
-        result.m_accumulateNonZeros[result.m_accumulateNonZeros.size() - 1] +
-        vec.size());
-    for (auto& elem : vec) {
-      result.m_columnsOfValues.push_back(elem.first);
-      result.m_values.push_back(elem.second);
-    }
-  }
-
   return result;
 }
